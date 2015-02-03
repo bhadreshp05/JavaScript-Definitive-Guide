@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Loan Calculator</title>
+</head>
+<style>
+	.output { font-weight: bold; }
+	#payment { text-decoration: underline; }
+	#graph { border: 1px solid #000; }
+	th, td { vertical-align: middle; }
+</style>
+<body>
+	<table>
+		<tr>
+			<th>Enter Loan Data:</th>
+			<td></td>
+			<th>Loan Balance, Cumulative Equity, and Interest Payments</th>
+		</tr>
+
+		<tr>
+			<td>Amount of the loan ($):</td>
+			<td><input type="text" id="amount" onchange="calculate();"></td>
+			<td rowspan=8>
+				<canvas id="graph" width="400" height="250"></canvas>
+			</td>
+		</tr>
+
+		<tr>
+			<td>Annual Interest (%):</td>
+			<td><input type="text" id="apr" onchange="calculate();"></td>
+		</tr>
+
+		<tr>
+			<td>Repayment period (years):</td>
+			<td><input type="text" id="years" onchange="calculate();"></td>
+		</tr>
+
+		<tr>
+			<td>Zipcode (to find lenders):</td>
+			<td><input type="text" id="zipcode" onchange="calculate();"></td>
+		</tr>
+
+		<tr>
+			<th>Approximate Payments: </th>
+			<td><button onclick="calculate();">Calculate</button></td>
+		</tr>
+
+		<tr>
+			<td>Monthly payment:</td>
+			<td>$<span class="output" id="payment"></span></td>
+		</tr>
+
+		<tr>
+			<td>Total Payment:</td>
+			<td>$<span class="output" id="total"></span></td>
+		</tr>
+
+		<tr>
+			<td>Total Interest:</td>
+			<td>$<span class="output" id="totalinterest"></span></td>
+		</tr>
+
+		<tr>
+			<th>Sponsors:</th>
+			<td colspan=2>
+				Apply for your loan with one these fine lenders:
+				<div id="lenders"></div>
+			</td>
+		</tr>
+	</table>
+
+	<script src="loanCalc.js"></script>
+</body>
+</html>
